@@ -1,0 +1,66 @@
+extends: 
+  - plugin:react/recommended 
+  - plugin:jest/recommended 
+  - plugin:jsdoc/recommended
+env:
+  browser: true
+  jest/globals: true
+parserOptions:
+    ecmaVersion: 12
+    sourceType: module
+settings:
+  react:
+    version: detect 
+plugins:
+  - jest
+  - jsdoc
+rules: 
+  # Rules can be configured with "off", "warning", "error" or 0, 1, 2
+
+  # ==========================
+  # Production best practices
+  # =====================
+  no-console: 1                                                                                  # https://eslint.org/docs/rules/no-console   
+
+  # =========================
+  # React-specific
+  # =====================
+  react/react-in-jsx-scope: "off"                                                                # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md 
+  react/prop-types: 2                                                                            # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md 
+  react/no-unescaped-entities: "off"                                                             # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+
+  # =========================
+  # General code design
+  # =====================
+  array-element-newline: ["error", "consistent"]                                                 # https://eslint.org/docs/rules/array-element-newline  
+  arrow-spacing: "error"                                                                         # https://eslint.org/docs/rules/arrow-spacing 
+  block-spacing: ["error", "always"]                                                             # https://eslint.org/docs/rules/block-spacing
+  brace-style: ["error", "1tbs", { "allowSingleLine": true }]                                    # https://eslint.org/docs/rules/brace-style
+  comma-dangle: ["error", "never"]                                                               # https://eslint.org/docs/rules/comma-dangle
+  comma-spacing: ["error", {"before": false, "after": true}]                                     # https://eslint.org/docs/rules/comma-spacing
+  computed-property-spacing: ["error", "never"]                                                  # https://eslint.org/docs/rules/computed-property-spacing
+  eol-last: ["error", "always"]                                                                  # https://eslint.org/docs/rules/eol-last
+  func-call-spacing: ["error", "never"]                                                          # https://eslint.org/docs/rules/func-call-spacing
+  function-call-argument-newline: ["error", "consistent"]                                        # https://eslint.org/docs/rules/function-call-argument-newline
+  function-paren-newline: ["error", "consistent"]                                                # https://eslint.org/docs/rules/function-paren-newline
+  nonblock-statement-body-position: ["error", "beside"]                                          # https://eslint.org/docs/rules/nonblock-statement-body-position
+  no-empty: ["error", { "allowEmptyCatch": true }]                                               # https://eslint.org/docs/rules/no-empty
+  
+  # =========================
+  # Whitespacing/indentation
+  # ======================== 
+  indent: ["error", 4, {"SwitchCase":1}]                                                         # https://eslint.org/docs/rules/indent
+  no-mixed-spaces-and-tabs: "error"                                                              # https://eslint.org/docs/rules/no-mixed-spaces-and-tabs  
+  no-multiple-empty-lines: ["error", {max: 2, maxEOF: 0, maxBOF: 0}]                             # https://eslint.org/docs/rules/no-multiple-empty-lines
+  keyword-spacing: ["error", { "before": true, "after": true}]                                   # https://eslint.org/docs/rules/keyword-spacing
+  linebreak-style: ["error", "unix"]                                                             # https://eslint.org/docs/rules/linebreak-style
+  lines-between-class-members: ["error", "always"]                                               # https://eslint.org/docs/rules/lines-between-class-members
+  no-trailing-spaces: ["error", { "ignoreComments": true }]                                      # https://eslint.org/docs/rules/no-trailing-spaces
+  no-whitespace-before-property: "error"                                                         # https://eslint.org/docs/rules/no-whitespace-before-property
+  object-curly-newline: ["error", { "multiline": true }]                                         # https://eslint.org/docs/rules/object-curly-newline
+  object-curly-spacing: ["error", "always"]                                                      # https://eslint.org/docs/rules/object-curly-spacing
+  operator-linebreak: ["error", "after"]                                                         # https://eslint.org/docs/rules/operator-linebreak
+  space-before-blocks: "error"                                                                   # https://eslint.org/docs/rules/space-before-blocks 
+  padded-blocks: ["error", "never"]                                                              # https://eslint.org/docs/rules/padded-blocks
+  space-in-parens: ["error", "never"]                                                                # https://eslint.org/docs/rules/space-in-parens
+  space-before-function-paren: ["error",{"anonymous":"never","named":"never","asyncArrow":"always"}] # https://eslint.org/docs/rules/space-before-function-paren
