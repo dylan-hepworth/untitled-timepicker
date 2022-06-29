@@ -2,11 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var react = require('react');
+var React = require('react');
 var PropTypes = require('prop-types');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 
 /**
@@ -38,26 +39,26 @@ const TimePicker = ({
   hoursAvailable
 }) => {
   const date = new Date();
-  const wrapperRef = react.useRef();
-  const hourInputRef = react.useRef();
-  const minuteInputRef = react.useRef();
-  const morningNightInputRef = react.useRef();
-  const hourDropDownRef = react.useRef();
-  const minuteDropDownRef = react.useRef();
-  const morningNightDropDownRef = react.useRef(); // Is the dropdown open?
+  const wrapperRef = React.useRef();
+  const hourInputRef = React.useRef();
+  const minuteInputRef = React.useRef();
+  const morningNightInputRef = React.useRef();
+  const hourDropDownRef = React.useRef();
+  const minuteDropDownRef = React.useRef();
+  const morningNightDropDownRef = React.useRef(); // Is the dropdown open?
 
-  const [isOpen, setIsOpen] = react.useState(false);
-  const [timeValue, setTimeValue] = react.useState(defaultTime || ""); // The select hour. By default set to current hour (1-12)
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [timeValue, setTimeValue] = React.useState(defaultTime || ""); // The select hour. By default set to current hour (1-12)
 
-  const [selectedHour, setSelectedHour] = react.useState("12"); // The select minute. By default set to current minute
+  const [selectedHour, setSelectedHour] = React.useState("12"); // The select minute. By default set to current minute
 
-  const [selectedMinute, setSelectedMinute] = react.useState("00"); // The selected AM/PM. By default set to current AM/PM
+  const [selectedMinute, setSelectedMinute] = React.useState("00"); // The selected AM/PM. By default set to current AM/PM
 
-  const [selectedAmPm, setSelectedAmPm] = react.useState("AM");
-  const [showError, setShowError] = react.useState(false);
-  const [errorMessage, setErrorMessage] = react.useState(""); // When the component loads for the first time, if there is a default time, make sure that it matches the correct format.
+  const [selectedAmPm, setSelectedAmPm] = React.useState("AM");
+  const [showError, setShowError] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState(""); // When the component loads for the first time, if there is a default time, make sure that it matches the correct format.
 
-  react.useEffect(() => {
+  React.useEffect(() => {
     // Setup an click event listener on the entire document to track when the user clicks outside of the component.
     document.addEventListener("click", handleOutsideClick); // If a default time was provided, make sure that it matches the 24 hour format, otherwise check the format for a 12 hour format.
 
@@ -123,10 +124,10 @@ const TimePicker = ({
     }
   }, []); // Keep reference to each value once set so that we can add the value back to the inputs if set and click away
 
-  const [prevSetHour, setPrevSetHour] = react.useState(selectedHour);
-  const [prevSetMinute, setPrevSetMinute] = react.useState(selectedMinute);
-  const [prevSetMorningNight, setPrevSetMorningNight] = react.useState(selectedAmPm);
-  react.useEffect(() => {
+  const [prevSetHour, setPrevSetHour] = React.useState(selectedHour);
+  const [prevSetMinute, setPrevSetMinute] = React.useState(selectedMinute);
+  const [prevSetMorningNight, setPrevSetMorningNight] = React.useState(selectedAmPm);
+  React.useEffect(() => {
     const handleUpdateDisplayTime = () => {
       let time = selectedHour || "00";
       time += ":";
@@ -138,7 +139,7 @@ const TimePicker = ({
     handleUpdateDisplayTime();
   }, [selectedHour, selectedMinute, selectedAmPm]); // Call the callback function and pass the selected time
 
-  react.useEffect(() => {
+  React.useEffect(() => {
     if (timeValue) {
       timeSelected(timeValue);
     }
@@ -221,7 +222,7 @@ const TimePicker = ({
 
       return hoursAvailable.map((hour, i) => {
         hour = ("0" + hour).slice(-2);
-        return /*#__PURE__*/react.React.createElement("li", {
+        return /*#__PURE__*/React__default["default"].createElement("li", {
           key: i,
           onClick: clickEvent
         }, hour);
@@ -235,9 +236,9 @@ const TimePicker = ({
             return (
               /*#__PURE__*/
               // We have to set a key for the div wrapper so that we don't receive an error
-              react.React.createElement("div", {
+              React__default["default"].createElement("div", {
                 key: "b"
-              }, /*#__PURE__*/react.React.createElement("li", {
+              }, /*#__PURE__*/React__default["default"].createElement("li", {
                 key: -1,
                 onClick: clickEvent
               }, "00"))
@@ -246,12 +247,12 @@ const TimePicker = ({
             return (
               /*#__PURE__*/
               // We have to set a key for the div wrapper so that we don't receive an error
-              react.React.createElement("div", {
+              React__default["default"].createElement("div", {
                 key: "b"
-              }, /*#__PURE__*/react.React.createElement("li", {
+              }, /*#__PURE__*/React__default["default"].createElement("li", {
                 key: -1,
                 onClick: clickEvent
-              }, "00"), /*#__PURE__*/react.React.createElement("li", {
+              }, "00"), /*#__PURE__*/React__default["default"].createElement("li", {
                 key: i,
                 onClick: clickEvent
               }, val.slice(-2)))
@@ -260,13 +261,13 @@ const TimePicker = ({
         } else {
           if (type === "minute" && incrementBy > 0) {
             if (i % incrementBy === 0) {
-              return /*#__PURE__*/react.React.createElement("li", {
+              return /*#__PURE__*/React__default["default"].createElement("li", {
                 key: i,
                 onClick: clickEvent
               }, val.slice(-2) - 1);
             }
           } else {
-            return /*#__PURE__*/react.React.createElement("li", {
+            return /*#__PURE__*/React__default["default"].createElement("li", {
               key: i,
               onClick: clickEvent
             }, val.slice(-2));
@@ -600,17 +601,17 @@ const TimePicker = ({
   };
 
   if (showError) {
-    return /*#__PURE__*/react.React.createElement("div", {
+    return /*#__PURE__*/React__default["default"].createElement("div", {
       className: "time_picker_wrapper error"
     }, "Error: ", errorMessage);
   } else {
-    return /*#__PURE__*/react.React.createElement("div", null, label && /*#__PURE__*/react.React.createElement("p", {
+    return /*#__PURE__*/React__default["default"].createElement("div", null, label && /*#__PURE__*/React__default["default"].createElement("p", {
       className: "label"
-    }, label), /*#__PURE__*/react.React.createElement("div", {
+    }, label), /*#__PURE__*/React__default["default"].createElement("div", {
       className: `time_picker_wrapper ${showDropdown && isOpen ? "selection_open" : ""} ${compactMode ? "compact_mode" : ""} ${use24HourFormat ? "twenty_four_hour" : ""}`
-    }, /*#__PURE__*/react.React.createElement("div", {
+    }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "time_picker_input"
-    }, /*#__PURE__*/react.React.createElement("input", {
+    }, /*#__PURE__*/React__default["default"].createElement("input", {
       className: "time_input hour",
       type: "text",
       value: selectedHour,
@@ -621,7 +622,7 @@ const TimePicker = ({
       onFocus: handleEditHour,
       onBlur: handleHourBlur,
       ref: hourInputRef
-    }), /*#__PURE__*/react.React.createElement("span", null, ":"), /*#__PURE__*/react.React.createElement("input", {
+    }), /*#__PURE__*/React__default["default"].createElement("span", null, ":"), /*#__PURE__*/React__default["default"].createElement("input", {
       className: "time_input",
       type: "text",
       value: selectedMinute,
@@ -632,7 +633,7 @@ const TimePicker = ({
       onFocus: handleEditMinute,
       onBlur: handleMinuteBlur,
       ref: minuteInputRef
-    }), !use24HourFormat && /*#__PURE__*/react.React.createElement("input", {
+    }), !use24HourFormat && /*#__PURE__*/React__default["default"].createElement("input", {
       className: "time_input",
       type: "text",
       value: selectedAmPm,
@@ -643,27 +644,27 @@ const TimePicker = ({
       onFocus: handleEditAmPm,
       onBlur: handleAmPmBlur,
       ref: morningNightInputRef
-    }), /*#__PURE__*/react.React.createElement("input", {
+    }), /*#__PURE__*/React__default["default"].createElement("input", {
       className: "time_input",
       type: "text",
       ref: wrapperRef
-    })), /*#__PURE__*/react.React.createElement("div", {
+    })), /*#__PURE__*/React__default["default"].createElement("div", {
       className: `selection_wrapper ${showDropdown && isOpen ? "" : "hidden"}`
-    }, /*#__PURE__*/react.React.createElement("div", {
+    }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "dropdown_wrapper"
-    }, /*#__PURE__*/react.React.createElement("ul", {
+    }, /*#__PURE__*/React__default["default"].createElement("ul", {
       ref: hourDropDownRef
-    }, generateTime("hour"))), /*#__PURE__*/react.React.createElement("div", {
+    }, generateTime("hour"))), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "dropdown_wrapper"
-    }, /*#__PURE__*/react.React.createElement("ul", {
+    }, /*#__PURE__*/React__default["default"].createElement("ul", {
       ref: minuteDropDownRef
-    }, generateTime("minute"))), /*#__PURE__*/react.React.createElement("div", {
+    }, generateTime("minute"))), /*#__PURE__*/React__default["default"].createElement("div", {
       className: `dropdown_wrapper ${use24HourFormat ? "hidden" : ""}`
-    }, /*#__PURE__*/react.React.createElement("ul", {
+    }, /*#__PURE__*/React__default["default"].createElement("ul", {
       ref: morningNightDropDownRef
-    }, /*#__PURE__*/react.React.createElement("li", {
+    }, /*#__PURE__*/React__default["default"].createElement("li", {
       onClick: onSelectedAmPm
-    }, "AM"), /*#__PURE__*/react.React.createElement("li", {
+    }, "AM"), /*#__PURE__*/React__default["default"].createElement("li", {
       onClick: onSelectedAmPm
     }, "PM"))))));
   }
