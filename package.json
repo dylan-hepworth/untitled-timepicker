@@ -1,7 +1,7 @@
 {
     "name": "untitled-timepicker",
-    "version": "1.0.0",
-    "description": "A simple reusable time picking component for React apps.",
+    "version": "1.0.1",
+    "description": "A simple and reusable time picking component for React apps.",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "files": [

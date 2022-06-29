@@ -18,7 +18,7 @@ import "./TimePicker.scss";
  * @param {array} props.hoursAvailable - An array of hours (numbers) that are to be used as the available hours. For example, if the hours array is [1, 2, 3, 4, 5], then the time picker will display the hours "01", "02", "03", "04", and "05".
  * @returns The Untitled TimePicker component.
  */
-const TimePicker = ({
+export const TimePicker = ({
 	timeSelected=()=>{},
 	defaultTime,
 	label,
@@ -696,6 +696,4 @@ TimePicker.propTypes = {
 	compactMode: PropTypes.bool,
 	incrementBy: PropTypes.oneOf([0, 5, 10, 15, 30, 60]),
     hoursAvailable: PropTypes.arrayOf(PropTypes.number)
-}; 
-
-export default TimePicker;
+};

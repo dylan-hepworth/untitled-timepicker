@@ -1,4 +1,4 @@
-import TimePicker from "../components/TimePicker/TimePicker";
+import { TimePicker } from "../components/TimePicker/TimePicker";
 
 // Set default Storybook parameters
 export default {
